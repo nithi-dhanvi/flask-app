@@ -11,7 +11,7 @@ pipeline {
         }
         stage ("ZIP build"){
             steps {
-                zip zipFile: "falsk-app.zip", archive: true, dir: "./"
+                zip zipFile: "falsk-app.zip", dir: "./"
             }
         }
     }
