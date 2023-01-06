@@ -18,7 +18,7 @@ pipeline {
         }
         stage ("zip") {
             steps {
-                zip zipFile: 'flaskapp.zip', dir: './'
+                sh "zip -r flaskapp.zip ./"
 
             }
         }
