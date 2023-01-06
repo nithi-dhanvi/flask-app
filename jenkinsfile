@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    stages {
+        stage ("GIT Checkout") {
+            steps {
+               git branch: "main", url: "https://github.com/nithi-dhanvi/flask-app.git"
+
+            }
+        
+        }
+        stage ("ZIP build"){
+            steps {
+                zip zipfile: "falsk-app.zip", archive: true, dir: "./"
+            }
+        }
+    }
+
+}
