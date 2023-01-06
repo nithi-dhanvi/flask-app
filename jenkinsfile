@@ -11,7 +11,8 @@ pipeline {
         }
         stage ("ZIP build"){
             steps {
-                zip zipFile: 'falsk-app.zip', dir: './'
+                sh "ls -ltr"
+                echo "testing"
             }
         }
     }
