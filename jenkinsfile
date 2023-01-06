@@ -9,10 +9,17 @@ pipeline {
             }
         
         }
-        stage ("ZIP build"){
+        stage ("LS"){
             steps {
+
                 sh "ls -ltr"
                 echo "testing"
+            }
+        }
+        stage ("zip") {
+            steps {
+                zip zipFile: 'flaskapp.zip', dir: './'
+
             }
         }
     }
