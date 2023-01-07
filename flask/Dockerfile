@@ -1,8 +1,8 @@
 FROM python:3.10-alpine AS builder
 WORKDIR /src
-COPY requirements.txt /src/testreq.txt
+COPY requirements.txt /src/requirements.txt
 RUN --mount=type=cache,target=/root/.cache/pip \
-    pip3 install -r testreq.txt
+    pip3 install -r requirements.txt
 COPY . .
 
 CMD ["python3", "server.py"]
