@@ -2,16 +2,17 @@
 - hosts:  uat-servers
   tasks:
   - name: Directory in container
-      file:
+    file:
       path: /var/tmp/flask_{{BUILD_NUMBER}}
       state: directory 
   - name: move zip
-      copy:
-        src: /var/tmp/docker-test/compose-test/flask-app/flaskapp.zip
-        dest: /var/tmp/flask_{{BUILD_NUMBER}}
+    copy:
+      src: /var/tmp/docker-test/compose-test/flask-app/flaskapp.zip
+      dest: /var/tmp/flask_{{BUILD_NUMBER}}
+      
   - name: uncompress
-      shell: cd /var/tmp/flask_{{BUILD_NUMBER}};unzip flaskapp.zip
+    shell: cd /var/tmp/flask_{{BUILD_NUMBER}};unzip flaskapp.zip
 
   - name: docker compose
-      shell: docker compose up 
+    shell: docker compose up 
       
