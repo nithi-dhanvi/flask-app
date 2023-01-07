@@ -14,5 +14,5 @@
     shell: cd /var/tmp/flask_{{BUILD_NUMBER}};unzip flaskapp.zip
 
   - name: docker compose
-    shell: cd /var/tmp/flask_{{BUILD_NUMBER}}; docker compose up 
+    shell: cd /var/tmp/flask_{{BUILD_NUMBER}}; docker compose up &
       
