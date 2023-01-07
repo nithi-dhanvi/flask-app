@@ -7,7 +7,7 @@
       state: directory 
   - name: move zip
     copy:
-      src: /var/lib/jenkins/workspace/doc-compose/flaskapp.zip
+      src: /var/lib/jenkins/workspace/flask-compose/flaskapp.zip
       dest: /var/tmp/flask_{{BUILD_NUMBER}}
       
   - name: uncompress
