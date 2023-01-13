@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage ("testing" for parllel") {
+        stage ("testing for parllel") {
             failfast true
             parllel {
                 stage ("parllel stage1") {
