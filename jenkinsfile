@@ -2,6 +2,26 @@ pipeline {
     agent any
 
     stages {
+        stage ("testing" for parllel") {
+            failfast true
+            parllel {
+                stage ("parllel stage1") {
+                     steps {
+                        echo " this is in parllel stage1"
+                        sh "docker pull httpd" 
+                        }
+                       }
+                 stage ("prl stage 2 copy /var to home") {
+                      steps {
+                       echo " prl stage 2"
+                       sh "rsync -av /var /home"
+                       }
+                     }
+                    
+                }
+           }
+                          
+                        
         stage ("GIT Checkout") {
             steps {
                git branch: "main", url: "https://github.com/nithi-dhanvi/flask-app.git"
@@ -9,6 +29,7 @@ pipeline {
             }
         
         }
+        
         stage ("LS"){
             steps {
 
@@ -22,6 +43,7 @@ pipeline {
 
             }
         }
+        
         stage ("ansible") {
             steps{
                 echo "${env.BUILD_NUMBER}"
