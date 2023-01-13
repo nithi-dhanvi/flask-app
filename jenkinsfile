@@ -8,12 +8,14 @@ pipeline {
                 stage ("parllel stage1") {
                      steps {
                         echo " this is in parllel stage1"
+                        sh "date"
                         sh "docker pull httpd" 
                         }
                        }
                  stage ("prl stage 2 copy /var to home") {
                       steps {
                        echo " prl stage 2"
+                       sh "date"
                        sh "rsync -av /home/var /tmp"
                        }
                      }
