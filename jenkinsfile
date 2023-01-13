@@ -3,8 +3,8 @@ pipeline {
 
     stages {
         stage ("testing for parllel") {
-            failfast true
-            parllel {
+            failFast true
+            parallel {
                 stage ("parllel stage1") {
                      steps {
                         echo " this is in parllel stage1"
